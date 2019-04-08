@@ -1,6 +1,8 @@
 package com.haulmont.sample.petclinic.entity.pet;
 
 import com.haulmont.sample.petclinic.entity.owner.Owner;
+
+import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;

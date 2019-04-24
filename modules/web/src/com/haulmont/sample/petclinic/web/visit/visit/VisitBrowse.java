@@ -1,6 +1,5 @@
 package com.haulmont.sample.petclinic.web.visit.visit;
 
-import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.ScreenBuilders;
 import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.cuba.gui.components.GroupTable;
@@ -49,7 +48,7 @@ public class VisitBrowse extends StandardLookup<Visit> {
                     );
                     visit.setPet(pet);
                 })
-                .withScreenClass(VisitCreate.class)
+                .withScreenClass(RegularCheckup.class)
                 .withLaunchMode(OpenMode.DIALOG)
                 .build()
                 .show();

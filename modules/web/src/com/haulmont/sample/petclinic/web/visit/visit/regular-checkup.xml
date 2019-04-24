@@ -19,9 +19,6 @@
         </collection>
     </data>
 
-    <dialogMode height="600"
-                width="800"/>
-
     <layout expand="editActions" spacing="true">
         <form id="fieldGroup" dataContainer="visitDc" width="100%">
             <column width="300px">

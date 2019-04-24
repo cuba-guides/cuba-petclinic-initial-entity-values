@@ -16,13 +16,13 @@ import javax.inject.Inject;
 public class VisitBrowse extends StandardLookup<Visit> {
 
     @Inject
-    protected ScreenBuilders screenBuilders;
+    private ScreenBuilders screenBuilders;
 
     @Inject
-    protected GroupTable<Visit> visitsTable;
+    private GroupTable<Visit> visitsTable;
 
     @Inject
-    protected MessageBundle messageBundle;
+    private MessageBundle messageBundle;
 
     @Subscribe("visitsTable.createRegularCheckup")
     public void createForPet(Action.ActionPerformedEvent event) {

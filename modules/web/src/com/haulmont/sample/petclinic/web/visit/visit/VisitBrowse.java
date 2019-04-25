@@ -40,18 +40,20 @@ public class VisitBrowse extends StandardLookup<Visit> {
                 .newEntity()
                 .withInitializer(visit -> {
                     visit.setPaid(true);
-                    visit.setDescription(
-                            messageBundle.formatMessage("regularCheckupContent",
-                                    pet.getName(),
-                                    pet.getIdentificationNumber()
-                            )
-                    );
+                    visit.setDescription(regularCheckupDescriptionContent(pet));
                     visit.setPet(pet);
                 })
                 .withScreenClass(RegularCheckup.class)
                 .withLaunchMode(OpenMode.DIALOG)
                 .build()
                 .show();
+    }
+
+    private String regularCheckupDescriptionContent(Pet pet) {
+        return messageBundle.formatMessage("regularCheckupContent",
+                pet.getName(),
+                pet.getIdentificationNumber()
+        );
     }
 
 

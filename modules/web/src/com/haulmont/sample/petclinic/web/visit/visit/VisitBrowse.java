@@ -39,7 +39,6 @@ public class VisitBrowse extends StandardLookup<Visit> {
         screenBuilders.editor(visitsTable)
                 .newEntity()
                 .withInitializer(visit -> {
-                    visit.setPaid(true);
                     visit.setDescription(regularCheckupDescriptionContent(pet));
                     visit.setPet(pet);
                 })

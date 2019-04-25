@@ -10,4 +10,9 @@ import com.haulmont.sample.petclinic.entity.visit.Visit;
 @LoadDataBeforeShow
 public class RegularCheckup extends StandardEditor<Visit> {
 
+    @Subscribe
+    protected void initRegularCheckupVisit(InitEntityEvent<Visit> event) {
+        event.getEntity().setPaid(false);
+    }
+
 }

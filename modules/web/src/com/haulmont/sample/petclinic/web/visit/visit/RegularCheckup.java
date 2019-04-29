@@ -12,7 +12,9 @@ public class RegularCheckup extends StandardEditor<Visit> {
 
     @Subscribe
     protected void initRegularCheckupVisit(InitEntityEvent<Visit> event) {
-        event.getEntity().setPaid(false);
+        Visit visit = event.getEntity();
+
+        visit.setPaid(false);
     }
 
 }

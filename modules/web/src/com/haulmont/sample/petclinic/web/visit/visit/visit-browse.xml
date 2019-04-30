@@ -38,6 +38,7 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
+                <column id="visitNumber"/>
                 <column id="visitDate"/>
                 <column id="description"/>
                 <column id="pet"/>

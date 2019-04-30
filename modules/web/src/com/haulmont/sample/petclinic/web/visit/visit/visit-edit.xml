@@ -25,6 +25,8 @@
     <layout expand="editActions" spacing="true">
         <form id="fieldGroup" dataContainer="visitDc">
             <column width="250px">
+                <lookupField property="type"/>
+                <textField property="visitNumber" editable="false"/>
                 <checkBox property="paid"/>
                 <dateField property="visitDate"/>
                 <textField colspan="5" property="description"/>

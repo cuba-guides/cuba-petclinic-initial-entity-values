@@ -7,16 +7,18 @@ import javax.annotation.Nullable;
 
 public enum VisitType implements EnumClass<String> {
 
-    VISIT("VISIT", 1),
-    REGULAR_CHECKUP("REGULAR_CHECKUP",2),
-    SURGERY("SURGERY", 3);
+    VISIT("VISIT", 1, false),
+    REGULAR_CHECKUP("REGULAR_CHECKUP",2, true),
+    SURGERY("SURGERY", 3, false);
 
-    private String id;
-    private int code;
+    private final boolean toBePayedUpfront;
+    private final String id;
+    private final int code;
 
-    VisitType(String value, int code) {
+    VisitType(String value, int code, boolean toBePayedUpfront) {
         this.id = value;
         this.code = code;
+        this.toBePayedUpfront = toBePayedUpfront;
     }
 
     public String getId() {
@@ -25,6 +27,10 @@ public enum VisitType implements EnumClass<String> {
 
     public int getCode() {
         return code;
+    }
+
+    public boolean isToBePayedUpfront() {
+        return toBePayedUpfront;
     }
 
     @Nullable

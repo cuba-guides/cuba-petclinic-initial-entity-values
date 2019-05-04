@@ -43,7 +43,7 @@ public class Visit extends StandardEntity {
     protected Pet pet;
 
     @Column(name = "PAID")
-    protected Boolean paid = Boolean.FALSE;
+    protected Boolean paid = false;
 
     public VisitType getType() {
         return type == null ? null : VisitType.fromId(type);

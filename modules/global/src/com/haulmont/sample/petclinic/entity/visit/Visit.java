@@ -2,10 +2,8 @@ package com.haulmont.sample.petclinic.entity.visit;
 
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
-import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
-import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.TimeSource;
 import com.haulmont.sample.petclinic.entity.pet.Pet;
@@ -18,7 +16,6 @@ import java.util.Date;
 @NamePattern("%s (%s)|pet,visitDate")
 @Table(name = "PETCLINIC_VISIT")
 @Entity(name = "petclinic_Visit")
-@PublishEntityChangedEvents
 public class Visit extends StandardEntity {
     private static final long serialVersionUID = 6351202390461847589L;
 

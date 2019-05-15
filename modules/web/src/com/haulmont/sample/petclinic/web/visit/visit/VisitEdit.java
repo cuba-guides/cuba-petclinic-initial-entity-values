@@ -1,12 +1,17 @@
 package com.haulmont.sample.petclinic.web.visit.visit;
 
+import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.gui.Notifications;
+import com.haulmont.cuba.gui.model.DataContext;
 import com.haulmont.cuba.gui.model.InstanceContainer;
 import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.sample.petclinic.entity.visit.Visit;
 import com.haulmont.sample.petclinic.entity.visit.VisitType;
 
 import javax.inject.Inject;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 
 @UiController("petclinic_Visit.edit")
@@ -15,6 +20,9 @@ import javax.inject.Inject;
 @LoadDataBeforeShow
 @PrimaryEditorScreen(Visit.class)
 public class VisitEdit extends StandardEditor<Visit> {
+
+    @Inject
+    private VisitNumberGenerator visitNumberGenerator;
 
     @Subscribe(id = "visitDc", target = Target.DATA_CONTAINER)
     protected void onVisitDcItemPropertyChange(InstanceContainer.ItemPropertyChangeEvent<Visit> event) {
@@ -34,6 +42,12 @@ public class VisitEdit extends StandardEditor<Visit> {
         if (selectedVisitType != null) {
             event.getItem().setPaid(selectedVisitType.isToBePayedUpfront());
         }
+    }
+
+    @Subscribe(target = Target.DATA_CONTEXT)
+    protected void onPreCommit(DataContext.PreCommitEvent event) {
+        Visit visit = getEditedEntity();
+        visit.setVisitNumber(visitNumberGenerator.generateVisitNumber(visit));
     }
 
 }

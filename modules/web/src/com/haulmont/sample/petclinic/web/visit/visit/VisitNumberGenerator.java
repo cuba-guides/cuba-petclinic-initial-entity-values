@@ -9,9 +9,10 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-@Component
+@Component(VisitNumberGenerator.NAME)
 public class VisitNumberGenerator {
 
+    static final String NAME = "petclinic_VisitNumberGenerator";
 
     @Inject
     UniqueNumbersService uniqueNumbersService;

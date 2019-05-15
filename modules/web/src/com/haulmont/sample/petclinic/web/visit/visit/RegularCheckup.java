@@ -28,7 +28,9 @@ public class RegularCheckup extends StandardEditor<Visit> {
     @Subscribe(target = Target.DATA_CONTEXT)
     protected void onPreCommit(DataContext.PreCommitEvent event) {
         Visit visit = getEditedEntity();
-        visit.setVisitNumber(visitNumberGenerator.generateVisitNumber(visit));
+        if (visit.getVisitNumber() == null) {
+            visit.setVisitNumber(visitNumberGenerator.generateVisitNumber(visit));
+        }
     }
 
 }
